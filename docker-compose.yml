@@ -1,0 +1,32 @@
+services:
+  app:
+    build:
+      context: ./src
+    container_name: hola_mundo_app
+    depends_on:
+      - mysql
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: appuser
+      DB_PASSWORD: apppassword
+      DB_NAME: appdb
+      DB_CONNECT_RETRIES: 20
+      DB_CONNECT_DELAY: 1
+    ports:
+      - "5000:5000"
+
+  mysql:
+    image: mysql:8.0
+    container_name: hola_mundo_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: appdb
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppassword
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:

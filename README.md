@@ -23,3 +23,5 @@ Abrir en navegador:
 ## Imagen
 
 ![Captura](src/image.png)
+
+<img width="1522" height="92" alt="image" src="https://github.com/user-attachments/assets/ba873b44-1419-40aa-ab01-8e15f528dfd4" />
